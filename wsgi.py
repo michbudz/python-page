@@ -1,3 +1,15 @@
+#!/usr/bin/python
+import os
+
+virtenv = os.environ['APPDIR'] + '/env/'    # THIS LINE EDITED
+#os.environ['PYTHON_EGG_CACHE'] = os.path.join(virtenv, 'lib/python2.7/site-packages') #This LINE added
+virtualenv = os.path.join(virtenv, 'bin/activate_this.py')
+try:
+    execfile(virtualenv, dict(__file__=virtualenv))
+except IOError:
+    pass
+
+
 from flask import Flask, jsonify, render_template
 
 
